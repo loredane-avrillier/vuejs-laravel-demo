@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title', 100);
             $table->longtext('description');
             $table->enum('type',['HOUSE', 'FLAT', 'LAND']);
-            $table->decimal('price');
+            $table->integer('price');
             $table->decimal('area');
             $table->enum('state', ['ACTIVE', 'INACTIVE']);
             $table->timestamps();

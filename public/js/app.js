@@ -19578,7 +19578,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("Resting")])])
+    return _c("div", [
+      _c("h1", [_vm._v("Resting")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("Lorédane AVRILLIER")])
+    ])
   }
 ]
 render._withStripped = true
@@ -19602,17 +19606,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Welcome baby")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/about" } }, [_vm._v("A PROPOS")])
-    ],
-    1
-  )
+  return _c("div", [
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-light bg-light" },
+      [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+          _vm._v("API Demo")
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarNavAltMarkup" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "navbar-nav" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { staticClass: "nav-item nav-link", attrs: { to: "/about" } },
+                  [_vm._v("A Propos")]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarNavAltMarkup",
+          "aria-controls": "navbarNavAltMarkup",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "nav-item nav-link", attrs: { href: "#" } }, [
+      _vm._v("\n          Home\n          "),
+      _c("span", { staticClass: "sr-only" }, [_vm._v("(current)")])
+    ])
+  }
+]
 render._withStripped = true
 
 

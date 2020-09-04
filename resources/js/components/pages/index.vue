@@ -1,6 +1,28 @@
 <template>
   <div>
-    <h1>Welcome baby</h1>
-    <router-link to="/about">A PROPOS</router-link>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">API Demo</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#">
+            Home
+            <span class="sr-only">(current)</span>
+          </a>
+        <router-link class="nav-item nav-link" to="/about">A Propos</router-link>
+        </div>
+      </div>
+    </nav>
+    
   </div>
 </template>

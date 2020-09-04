@@ -1,5 +1,6 @@
 <template>
     <div>
-        <h2>Resting</h2>
+        <h1>Resting</h1>
+        <div>Lorédane AVRILLIER</div>
     </div>
 </template>
