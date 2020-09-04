@@ -19,7 +19,6 @@
 
 <body>
     <div id="app">
-        Vue.js/Laravel Demo
         <app></app>
     </div>
 
