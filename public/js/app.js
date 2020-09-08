@@ -1987,13 +1987,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       search: "",
-      products: []
+      products: [],
+      loading: true
     };
   },
   mounted: function mounted() {
@@ -2005,6 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/products").then(function (response) {
         _this.products = response.data.data;
+        _this.loading = false;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2030,7 +2050,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "nav[data-v-d216fb68] {\n  background-color: #1c2833;\n}\nnav a[data-v-d216fb68] {\n  color: #ffffff;\n}\n.form-control[data-v-d216fb68] {\n  border-radius: 1em;\n}\n.input-group input[data-v-d216fb68] {\n  border: 0;\n}\n.input-group .search[data-v-d216fb68] {\n  background: #ffffff;\n  border: 0;\n  cursor: pointer;\n  border-top-right-radius: 1em;\n  border-bottom-right-radius: 1em;\n}\n.input-group[data-v-d216fb68],\n.menu[data-v-d216fb68],\n.navbar-brand[data-v-d216fb68] {\n  flex-basis: 33%;\n}", ""]);
+exports.push([module.i, "nav[data-v-d216fb68] {\n  background-color: #1b1b1b;\n}\nnav .navbar-brand[data-v-d216fb68] {\n  color: #e3e7dd;\n}\nnav button[data-v-d216fb68]:hover,\nnav .navbar-brand[data-v-d216fb68]:hover {\n  color: #846e74;\n  background-color: transparent;\n}\nnav .form-control[data-v-d216fb68],\nnav button[data-v-d216fb68] {\n  margin-right: 0;\n  background-color: #fff;\n  border-radius: 0;\n  border: 0;\n  color: #1b1b1b;\n}\nh2[data-v-d216fb68] {\n  color: #846e74;\n}\n.card-footer a[data-v-d216fb68] {\n  color: #b7a6ad;\n}\n.card:hover .card-body[data-v-d216fb68] {\n  filter: blur(4px);\n  cursor: pointer;\n}\n.card:hover .card-footer[data-v-d216fb68] {\n  color: #513e3e;\n}\n\n/*\n.input-group {\n  input {\n    border: 0;\n  }\n  .search {\n    background: #ffffff;\n    border: 0;\n    cursor: pointer;\n    border-top-right-radius: 1em;\n    border-bottom-right-radius: 1em;\n  }\n}\n.input-group,\n.menu,\n.navbar-brand {\n  flex-basis: 33%;\n} */\n.container[data-v-d216fb68] {\n  min-height: 90vh;\n}", ""]);
 
 // exports
 
@@ -20444,56 +20464,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.products, function(product) {
-        return _c("div", { key: "product-key" + product.id }, [
-          _vm._v("\n    " + _vm._s(product) + "\n  ")
+  return _c("div", [
+    _c("header", [
+      _c("nav", { staticClass: "navbar justify-content-between" }, [
+        _c("a", { staticClass: "navbar-brand" }, [_vm._v("API DEMO")]),
+        _vm._v(" "),
+        _c("form", { staticClass: "form-inline" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "search",
+              placeholder: "Rechercher",
+              "aria-label": "Search"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-success my-2 my-sm-0",
+              attrs: { type: "submit" }
+            },
+            [
+              _c(
+                "icon-base",
+                {
+                  attrs: { viewBox: "0 0 551.13 551.13", "icon-name": "search" }
+                },
+                [_c("icon-search")],
+                1
+              )
+            ],
+            1
+          )
         ])
-      }),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/about" } }, [_vm._v("à propos")])
-    ],
-    2
-  )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.loading
+      ? _c("div", { staticClass: "d-flex justify-content-center" }, [
+          _vm._v("\n    loading\n    "),
+          _vm._m(0)
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "container mt-5", class: { loading: _vm.loading } },
+      [
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.products, function(product) {
+            return _c(
+              "div",
+              { key: "product-key" + product.id, staticClass: "col-md-6" },
+              [
+                _c("div", { staticClass: "card w-100" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("h2", [_vm._v(_vm._s(product.title))]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "card-text" }, [
+                      _vm._v(_vm._s(product.description))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "card-footer" },
+                    [
+                      _c("router-link", { attrs: { to: "/about" } }, [
+                        _vm._v("Voir plus")
+                      ])
+                    ],
+                    1
+                  )
+                ])
+              ]
+            )
+          }),
+          0
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("header", [
-      _c(
-        "nav",
-        { staticClass: "navbar navbar-light bg-light justify-content-between" },
-        [
-          _c("a", { staticClass: "navbar-brand" }, [_vm._v("Navbar")]),
-          _vm._v(" "),
-          _c("form", { staticClass: "form-inline" }, [
-            _c("input", {
-              staticClass: "form-control mr-sm-2",
-              attrs: {
-                type: "search",
-                placeholder: "Search",
-                "aria-label": "Search"
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-outline-success my-2 my-sm-0",
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Search")]
-            )
-          ])
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "spinner-border", attrs: { role: "status" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
   }
 ]
 render._withStripped = true

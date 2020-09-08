@@ -46,9 +46,39 @@ class ProductCrudController extends CrudController
          * - CRUD::column('price')->type('number');
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
-        CRUD::addColumn(
-            ['name' => 'price', 'type' => 'number']
-        );
+     /*    CRUD::addColumns(
+            ['name' => 'price','label' => 'Prix', 'type' => 'number'],
+            ['name' => 'title','label' => 'Titre', 'type' => 'text'],
+        ); */
+        
+        $this->crud->addColumns([ 
+            [
+                'name'=>'title',
+                'label'=>'Titre',
+                'type'=>'text'
+            ],
+            [
+                'name'=>'area',
+                'label'=>'Area',
+                'type'=>'enum'
+            ],
+            [
+                'name'=>'type',
+                'label'=>'Type',
+                'type'=>'enum'
+            ],
+            [
+                'name'=>'price',
+                'label'=>'Prix',
+                'type'=>'number'
+            ],
+            [
+                'name'=>'state',
+                'label'=>'State',
+                'type'=>'enum'
+            ],
+        ]);
+        
     }
 
     /**
@@ -63,12 +93,13 @@ class ProductCrudController extends CrudController
 
         //CRUD::setFromDb(); // fields
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
-        CRUD::field('title')->type('text');
+      
+        CRUD::field('title')->label('Titre')->type('text');
+        CRUD::field('description')->type('textarea');
+        CRUD::field('price')->label('Prix')->type('number');
+        CRUD::field('area')->type('number');
+        CRUD::field('type')->type('enum');
+        CRUD::field('state')->label('Statut')->type('enum');
     }
 
     /**
