@@ -29,7 +29,8 @@
               <p class="card-text">{{product.description}}</p>
             </div>
             <div class="card-footer">
-              <router-link to="/about">Voir plus</router-link>
+              <router-link to="/about">about</router-link>
+              <router-link :to="'/produit/' + product.slug">Voir plus</router-link>
             </div>
           </div>
         </div>
